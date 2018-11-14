@@ -1,0 +1,5 @@
+CREATE TABLE BarcodeBook (
+	Barcode CHAR(12) PRIMARY KEY,
+	BookId  INTEGER NOT NULL,
+	CONSTRAINT BookIdConstraint FOREIGN KEY (BookId) REFERENCES Book
+	);
