@@ -1,0 +1,22 @@
+﻿@using Bookish.DataAccess
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<table style="width:100%">
+    <tr>
+        <th> Title</th>
+        <th>Author</th>
+        <th>Return Date</th>
+    </tr>
+    @foreach (BorrowedBook book in @ViewBag.BorrowedBooks)
+    {
+    <tr>
+        <td onClick="FindBook();"><a href="/Home/Book">@book.Title</a> </td>
+        <td><a href="/Home/Book">@book.Author</a> </td>
+        <td><a href="/Home/Book">@book.ReturnDate</a> </td>
+    </tr>
+    }
+</table>
+
+    

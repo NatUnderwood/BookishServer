@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bookish.DataAccess;
 using Dapper;
 
 namespace Bookish
@@ -14,12 +15,11 @@ namespace Bookish
     {
         static void Main(string[] args)
         {
-            IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["BookishConnection"].ConnectionString);
-            string SqlString = "SELECT TOP 3 [BookId],[Title],[Author],[ISBN] FROM [Book]";
-            var books = (List<Book>)db.Query<Book>(SqlString);
-            foreach (var book in books)
+            var dataAccessor= new DataAccessor();
+            var bookList = dataAccessor.GetBooks();
+            foreach (var book in bookList)
             {
-                Console.WriteLine("THIS ACTUALLY WORKED");
+                Console.WriteLine(book.ToString()+"\n");
             }
         }
     }

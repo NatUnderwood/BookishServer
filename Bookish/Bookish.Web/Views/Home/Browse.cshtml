@@ -1,0 +1,17 @@
+﻿@using Bookish.DataAccess
+@{
+    ViewBag.Title = "Browse";
+}
+<table style="width:100%">
+    <tr>
+        <th> Title</th>
+        <th>Author</th>
+    </tr>
+    @foreach (Book book in @ViewBag.Books)
+    {
+        <tr>
+            <td>@book.Title</td>
+            <td>@book.Author</td>
+        </tr>
+    }
+</table>
